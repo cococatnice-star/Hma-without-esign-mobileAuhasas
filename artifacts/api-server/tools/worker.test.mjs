@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 const source = await readFile(new URL("../../../generated-artifacts/cocoxoxoxox.js", import.meta.url), "utf8");
 const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`);
-const websiteOrigin = "https://hmfndndend-without-esign-mobile--cocoxwtfauth.replit.app";
+const websiteOrigin = "https://hma-without-esign-mobile--cocoxwtfauth.replit.app";
 test("unknown browser paths are blocked, while real Meow Cheatz pages stay usable", async () => {
   for (const pathname of ["/234j", "/234j/", "/random/nested/path", "/a2jb2c3d"]) {
   for (const headers of [{ accept: "text/html" }, { "sec-fetch-dest": "document" }]) {
