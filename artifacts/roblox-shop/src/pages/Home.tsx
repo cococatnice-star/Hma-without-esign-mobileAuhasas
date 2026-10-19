@@ -417,6 +417,15 @@ export default function Home() {
                 iOS requires your approval to add the shortcut.
               </p>
             )}
+            <a
+              href="https://www.mediafire.com/file/lyxtzv5u9mmc8ij/CocoX_2.742.1053_1791838151.ipa/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-download-cocox-ipa"
+              className="block w-full border border-primary/50 bg-primary/5 px-5 py-4 text-center font-display text-sm font-bold tracking-[0.18em] text-primary transition-all hover:scale-[1.02] hover:bg-primary/15 active:scale-[0.98]"
+            >
+              Download CocoX.ipa
+            </a>
             <DeltaV2InstallButton />
             <motion.button
               type="button"
