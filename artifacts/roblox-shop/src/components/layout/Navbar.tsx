@@ -49,7 +49,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-4 text-muted-foreground">
             <div className="hidden lg:flex flex-col items-end gap-0.5 border-r border-primary/20 pr-4 text-[9px] font-display font-bold uppercase leading-tight tracking-[0.16em] text-primary/80">
-              <span>K SIGN IS COMING SOON</span>
+              <span>COCOX K-SIGN IS AVAILABLE</span>
               <a href={`${import.meta.env.BASE_URL}api/cocox-sign-profile`} className="hover:text-white transition-colors" title="Install the CocoX Sign Home Screen shortcut in Safari">COCOX SIGN IS AVAILABLE</a>
             </div>
 

@@ -10,7 +10,6 @@ import { products } from "@/data/products";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ShieldCheck, Zap, Clock, HeadphonesIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { DeltaV2InstallButton } from "@/components/DeltaV2InstallButton";
 
 const predictionColors = [
   { label: "RED", value: "#ef4444" },
@@ -64,13 +63,6 @@ export default function Home() {
         keepalive: true,
       });
     }
-  };
-
-  const handleComingSoon = (sign: "K") => {
-    toast({
-      title: `${sign} SIGN`,
-      description: `${sign} Sign is coming soon.`,
-    });
   };
 
   const playDecisionSound = (frequency: number) => {
@@ -364,7 +356,7 @@ export default function Home() {
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="absolute right-4 top-4 z-10 text-right font-display text-[9px] font-bold uppercase leading-relaxed tracking-[0.16em] text-primary/80 sm:right-8 sm:top-6 sm:text-xs">
-          <div>K SIGN IS COMING SOON</div>
+          <div>COCOX K-SIGN IS AVAILABLE</div>
           <div>COCOX SIGN IS AVAILABLE</div>
         </div>
         <motion.button
@@ -426,16 +418,15 @@ export default function Home() {
             >
               Download CocoX.ipa
             </a>
-            <DeltaV2InstallButton />
-            <motion.button
-              type="button"
-              onClick={() => handleComingSoon("K")}
+            <motion.a
+              href="itms-services://?action=download-manifest&url=https://cocox.wtf/api/manifest.plist"
+              data-testid="link-cocox-k-sign"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full border border-primary/50 bg-primary/5 px-5 py-4 font-display text-sm font-bold uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/15"
+              className="w-full border border-primary/50 bg-primary/5 px-5 py-4 font-display text-sm font-bold normal-case tracking-[0.18em] text-primary transition-colors hover:bg-primary/15"
             >
-              [ K SIGN SOON ]
-            </motion.button>
+              CocoX K-sign
+            </motion.a>
             <motion.button
               type="button"
               onClick={() => setShowLauncher(false)}
@@ -463,7 +454,7 @@ export default function Home() {
         />
         <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[130px]" />
         <div className="absolute right-4 top-4 z-10 text-right font-display text-[9px] font-bold uppercase leading-relaxed tracking-[0.16em] text-primary/80 sm:right-8 sm:top-6 sm:text-xs">
-          <div>K SIGN IS COMING SOON</div>
+          <div>COCOX K-SIGN IS AVAILABLE</div>
           <div>COCOX SIGN IS AVAILABLE</div>
         </div>
 
