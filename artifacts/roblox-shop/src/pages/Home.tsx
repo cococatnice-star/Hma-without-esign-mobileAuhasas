@@ -554,7 +554,7 @@ export default function Home() {
             whileTap={{ scale: 0.98 }}
             className="mt-7 block w-full border border-primary bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-white"
           >
-            Continue
+            Continue To Install
           </motion.a>
         </motion.div>
       </div>
