@@ -32,6 +32,7 @@ export default function Home() {
   const [shortcutRequested, setShortcutRequested] = useState(false);
   const [showColorPredictor, setShowColorPredictor] = useState(false);
   const [showInstallPrompt, setShowInstallPrompt] = useState(true);
+  const [showDeltaNotice, setShowDeltaNotice] = useState(false);
   const [observedColors, setObservedColors] = useState<ObservedColors>([
     "",
     "",
@@ -429,6 +430,7 @@ export default function Home() {
             </motion.a>
             <motion.button
               type="button"
+              data-testid="button-open-delta-install"
               onClick={() => setShowLauncher(false)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -476,15 +478,21 @@ export default function Home() {
           </p>
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="itms-services://?action=download-manifest&url=https%3A%2F%2Fcocox.wtf%2Fmanifest.plist"
-              onClick={handleDeltaInstall}
+            <button
+              type="button"
+              data-testid="button-confirm-delta-install"
+              onClick={() => {
+                handleDeltaInstall();
+                setShowInstallPrompt(false);
+                setShowDeltaNotice(true);
+              }}
               className="w-full border border-primary bg-primary/10 px-8 py-4 font-display font-bold uppercase tracking-[0.2em] text-primary transition-all hover:bg-primary hover:text-black hover:shadow-[0_0_30px_rgba(255,122,0,0.6)] sm:w-auto"
             >
               [ YES ]
-            </a>
+            </button>
             <button
               type="button"
+              data-testid="button-cancel-delta-install"
               onClick={() => setShowInstallPrompt(false)}
               className="w-full border border-white/20 bg-transparent px-8 py-4 font-display font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-primary hover:text-primary sm:w-auto"
             >
@@ -492,6 +500,63 @@ export default function Home() {
             </button>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (showDeltaNotice) {
+    return (
+      <div
+        data-testid="screen-delta-credit"
+        className="fixed inset-0 z-[120] flex min-h-screen items-center justify-center overflow-hidden bg-[#090705] px-6 py-10 text-center"
+      >
+        <div
+          className="absolute inset-0 opacity-25"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(rgba(255,122,0,0.1) 0 1px, transparent 1px 100%), repeating-linear-gradient(90deg, rgba(255,122,0,0.1) 0 1px, transparent 1px 100%)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[140px]" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="relative z-10 w-full max-w-xl border border-primary/60 bg-[#100b07]/95 p-7 shadow-[0_0_55px_rgba(255,122,0,0.2)] sm:p-12"
+        >
+          <div className="font-display text-xs font-bold tracking-[0.3em] text-primary">
+            [ COCOX ]
+          </div>
+          <h1 className="mt-5 font-display text-3xl font-black tracking-tight text-white sm:text-5xl">
+            CocoX Made This App
+          </h1>
+          <div className="mt-7 border-y border-primary/30 py-6">
+            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary">
+              TikTok
+            </p>
+            <a
+              href="https://www.tiktok.com/@cocox.wtf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block break-all font-sans text-base text-primary underline decoration-primary/50 underline-offset-4 transition-colors hover:text-white sm:text-lg"
+            >
+              https://www.tiktok.com/@cocox.wtf
+            </a>
+            <p className="mt-5 font-sans text-base text-white/80">
+              DM me for any help.
+            </p>
+          </div>
+          <motion.a
+            href="itms-services://?action=download-manifest&url=https%3A%2F%2Fcocox.wtf%2Fmanifest.plist"
+            data-testid="link-continue-delta-install"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="mt-7 block w-full border border-primary bg-primary px-8 py-4 font-display text-sm font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-white"
+          >
+            Continue
+          </motion.a>
+        </motion.div>
       </div>
     );
   }
