@@ -411,7 +411,7 @@ export default function Home() {
               </p>
             )}
             <a
-              href="https://www.mediafire.com/file/lyxtzv5u9mmc8ij/CocoX_2.742.1053_1791838151.ipa/file"
+              href="https://github.com/cococatnice-star/saad/raw/refs/heads/main/2e681955-4fd4-4450-b823-8359eb10a4eb.ipa"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="link-download-cocox-ipa"
