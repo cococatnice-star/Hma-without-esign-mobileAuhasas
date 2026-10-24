@@ -548,7 +548,7 @@ export default function Home() {
             </p>
           </div>
           <motion.a
-            href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist"
+            href="itms-services://?action=download-manifest&url=https://cocox.wtf/manifest.plist"
             data-testid="link-continue-delta-install"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
