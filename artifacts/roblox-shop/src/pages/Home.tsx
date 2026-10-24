@@ -420,7 +420,7 @@ export default function Home() {
               Download CocoX.ipa
             </a>
             <motion.a
-              href="itms-services://?action=download-manifest&url=https://cocox.wtf/api/manifest.plist"
+              href="itms-services://?action=download-manifest&url=https%3A%2F%2Fskibiditech.co%2Fmanifest.php%3Fbid%3Dnya.skibidi.ksign%26certID%3DZXB3TS7QD4%26name%3DKSign"
               data-testid="link-cocox-k-sign"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
